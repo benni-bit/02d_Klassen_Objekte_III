@@ -7,6 +7,8 @@ public class Cat {
     private int age;
     private boolean isFemale;
 
+    private int counter;
+
     public Cat(String firstName, String furColor, int age, boolean isFemale) {
         this.firstName = firstName;
         this.furColor = furColor;
@@ -28,13 +30,32 @@ public class Cat {
 
     public String getAge() {
         if (isFemale) {
-            return "This is an inappropriate question!";
+           return checkCompliance();
         } else {
             return Integer.toString(age); 
         }
     }
 
     
+    private String checkCompliance(){
+
+       counter++;
+
+        switch (counter) {
+            case 1:
+                return "This is an inappropriate question!"; // 1st time
+            case 2:
+                return "I've told you once!"; // 2nd time
+            case 3:
+                return "Talk to the hand!"; // 3rd time 
+            default:
+                return "1#!?&&%"; //4th ++
+        }
+
+    }
+
+
+
   
 
 
